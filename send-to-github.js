@@ -1,7 +1,7 @@
 // height width 使用 equalTo
 // left right bottom top 使用 inset
 
-const { POST_URL, TOKEN } = require('./jsbox.config');
+const { GITHUB_POST_URL, GITHUB_TOKEN } = require('./jsbox.config');
 
 const generateInputRow = ({
   inputName,
@@ -72,7 +72,7 @@ $ui.render({
           placeholder: '请输入 token',
           top: 0,
           id: 'token',
-          text: TOKEN
+          text: GITHUB_TOKEN
         }),
         generateInputRow({
           inputName: '链接: ',
@@ -109,7 +109,7 @@ $ui.render({
 
               $http.request({
                 method: "POST",
-                url: POST_URL,
+                url: GITHUB_POST_URL,
                 header: {
                   'Content-Type': 'application/json',
                   Authorization: `token ${token}`
@@ -126,7 +126,7 @@ $ui.render({
                   } else {
                     if(data.title) {
                       $ui.alert("请求成功");
-                          $('link').text = ''
+                      $('link').text = '';
                     } else {
                       $ui.alert("请求失败");
                     }
